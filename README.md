@@ -393,6 +393,17 @@ The obtained results demonstrate that the implemented pipeline successfully repr
 
 The current implementation demonstrates strong real-time object detection performance; however, several enhancements can further improve the system.
 
+## 🚀 Future Improvements
+
+- Integrate lane detection
+- Add traffic sign recognition
+- Deploy on NVIDIA Jetson Nano
+- Integrate LiDAR and camera fusion
+- Real-time collision warning system
+- Object tracking using ByteTrack/DeepSORT
+- Speed estimation of surrounding vehicles
+- Night-time detection using thermal cameras
+
 ### Planned Improvements
 
 - 🚦 Traffic Sign Detection
@@ -522,6 +533,30 @@ This project is licensed under the **MIT License**.
 See the **LICENSE** file for more information.
 
 ---
+
+## 📁 Project Structure
+
+```text
+ADAS-System-for-Indian-Roads
+│
+├── dataset/
+│
+├── DIRS21/
+│
+├── runs/
+│   └── detect/
+│       ├── yolo26n_20epochs/
+│       ├── yolo26n_40epochs/
+│       ├── yolo26n_60epochs/
+│       └── yolo26n_80epochs/
+│
+├── data.yaml
+├── dataset_split.py
+├── show_accuracy.py
+├── requirements.txt
+├── README.md
+└── LICENSE
+```
 
 # 👨‍💻 Author
 
