@@ -1,118 +1,512 @@
 # 🚗 ADAS System for Indian Roads
 
-> **An AI-powered Advanced Driver Assistance System (ADAS) for Indian road scenarios using Ultralytics YOLOv8 and YOLO26 object detection models trained on the DIRS21 dataset.**
+<p align="center">
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
+![YOLO](https://img.shields.io/badge/YOLO-v8%20%7C%20YOLO26-success?style=for-the-badge)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-red?style=for-the-badge&logo=opencv)
+![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-orange?style=for-the-badge&logo=pytorch)
+![Status](https://img.shields.io/badge/Project-Completed-brightgreen?style=for-the-badge)
+
+</p>
 
 ---
 
-## 📖 Table of Contents
+## 📖 Overview
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Dataset](#dataset)
-- [Models Used](#models-used)
-- [Training Configuration](#training-configuration)
-- [Results](#results)
-- [Installation](#installation)
-- [Project Structure](#project-structure)
-- [Future Improvements](#future-improvements)
-- [Author](#author)
+Road conditions in India present unique challenges for autonomous driving systems due to dense traffic, heterogeneous vehicle types, unpredictable road users, and varying infrastructure.
 
+This project develops an **Advanced Driver Assistance System (ADAS)** capable of detecting common road objects in Indian traffic using state-of-the-art YOLO object detection models.
 
-## 📌 Project Overview
+The project compares the performance of **YOLOv8** and **YOLO26** on the **DIRS21 (Dataset for Indian Road Scenarios)** dataset and evaluates each model using Precision, Recall, Detection Accuracy, mAP@50, and mAP@50-95.
 
-Road traffic in India presents unique challenges due to high vehicle density, mixed traffic conditions, frequent pedestrian movement, and the presence of vehicles such as auto-rickshaws that are often absent from conventional driving datasets.
+The objective was to determine which model provides better real-time detection performance for Indian road environments while maintaining high inference speed.
 
-This project develops an **AI-powered Advanced Driver Assistance System (ADAS)** capable of detecting multiple road users in real time using state-of-the-art **Ultralytics YOLO object detection models**. The models were trained on the **DIRS21 (Dataset for Indian Road Scenarios)** to improve detection performance in realistic Indian driving environments.
+---
 
-To evaluate modern object detection architectures, two different models were trained and compared:
+# ✨ Features
 
-- **YOLOv8n**
-- **YOLO26n**
+- 🚗 Real-time object detection
+- 🚌 Detects multiple vehicle categories
+- 🏍 Motorcycle detection
+- 🚶 Pedestrian detection
+- 🚛 Truck detection
+- 🚕 Auto-rickshaw detection
+- 📊 Performance comparison between YOLOv8 and YOLO26
+- 📈 Precision-Recall analysis
+- 📉 Training loss visualization
+- 📋 Confusion Matrix generation
+- 🎯 mAP evaluation
+- ⚡ GPU accelerated training
 
-Both models were trained using identical datasets and training configurations, allowing a fair comparison of their detection accuracy, precision, recall, and mAP performance.
+---
 
-The final system demonstrates accurate detection of multiple traffic participants and serves as a foundation for future ADAS features such as lane detection, collision warning, traffic sign recognition, and autonomous driving assistance.
-
-
-## ✨ Features
-
-- 🚗 Real-time vehicle detection using Ultralytics YOLO models
-- 🛺 Detection of Indian road-specific vehicles such as Auto Rickshaws
-- 🚌 Multi-class object detection across seven traffic categories
-- 📊 Comparative evaluation of YOLOv8n and YOLO26n
-- 📈 Automatic performance evaluation using Precision, Recall, mAP@50 and mAP@50-95
-- ⚡ GPU-accelerated training using CUDA
-- 📦 Training pipeline with automatic dataset splitting
-- 🛑 Early stopping to prevent overfitting
-- 📉 Automatic loss and metric visualization generated after training
-
-
-## 📂 Dataset
-
-**Dataset Used:** DIRS21 (Dataset for Indian Road Scenarios)
-
-The dataset contains real-world Indian traffic scenes and includes multiple classes commonly encountered on Indian roads.
-
-### Dataset Split
-
-| Split | Percentage |
-|--------|------------|
-| Training | 80% |
-| Validation | 10% |
-| Testing | 10% |
-
-### Classes
-
-- Auto Rickshaw
-- Bicycle
-- Bus
-- Car
-- Motorcycle
-- Person
-- Truck
-
-
-## 🤖 Models Used
-
-Two Ultralytics object detection models were trained and evaluated.
+# 🧠 Models Used
 
 | Model | Purpose |
-|---------|----------|
-| YOLOv8n | Baseline Model |
-| YOLO26n | Improved architecture for comparison |
+|--------|----------|
+| YOLOv8n | Baseline model |
+| YOLO26n | Improved object detector |
 
+---
 
-## ⚙️ Training Configuration
+# 🗂 Dataset
+
+**Dataset Used**
+
+DIRS21 (Dataset for Indian Road Scenarios)
+
+The dataset contains images collected from Indian roads containing diverse traffic conditions including:
+
+- Cars
+- Buses
+- Trucks
+- Motorcycles
+- Auto Rickshaws
+- Pedestrians
+
+Dataset Split:
+
+| Split | Percentage |
+|--------|-----------:|
+| Training | 80% |
+| Testing | 10% |
+| Validation | 10% |
+
+---
+
+# 📂 Project Structure
+
+```
+ADAS-System-for-Indian-Roads
+│
+├── data.yaml
+├── dataset_split.py
+├── show_accuracy.py
+├── requirements.txt
+│
+├── runs/
+│   └── detect/
+│       ├── train-3/
+│       ├── train-4/
+│       ├── train-5/
+│       ├── train-8/
+│       ├── train-9/
+│       ├── yolo26n_20epochs/
+│       ├── yolo26n_40epochs/
+│       ├── yolo26n_60epochs/
+│       └── yolo26n_80epochs/
+│
+├── README.md
+└── LICENSE
+```
+
+---
+
+# ⚙️ Technologies Used
+
+- Python
+- PyTorch
+- Ultralytics YOLO
+- OpenCV
+- NumPy
+- Pandas
+- Matplotlib
+
+---
+
+# 💻 Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/ArmaanBhide/ADAS-System-for-Indian-Roads.git
+```
+
+Go into the project
+
+```bash
+cd ADAS-System-for-Indian-Roads
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# ▶️ Training
+
+Train YOLOv8
+
+```bash
+yolo detect train model=yolov8n.pt data=data.yaml epochs=60
+```
+
+Train YOLO26
+
+```bash
+yolo detect train model=yolo26n.pt data=data.yaml epochs=60
+```
+
+---
+
+# 📊 Training Configuration
 
 | Parameter | Value |
-|-----------|-------|
-| Framework | Ultralytics |
-| Language | Python |
+|------------|-------|
 | Image Size | 640 × 640 |
+| Optimizer | AdamW (Auto Optimizer) |
 | Batch Size | 8 |
-| Optimizer | AdamW (Auto) |
-| Device | NVIDIA GPU (CUDA) |
+| Device | GPU |
 | Early Stopping | Patience = 10 |
+| Data Augmentation | Mosaic, Scale, Flip, HSV |
 | Dataset Split | 80 / 10 / 10 |
-| Data Augmentation | Mosaic, Flip, Scale, HSV Augmentation |
 
+---
 
-## 📊 Model Performance
+# 📈 Model Performance
+
+The final trained models were evaluated using multiple object detection metrics.
+
+## Performance Comparison
 
 | Metric | YOLOv8n (60 Epochs) | YOLO26n (60 Epochs) |
-|---------|--------------------|---------------------|
+|---------|--------------------:|--------------------:|
 | Detection Accuracy | 79.40% | **80.48%** |
 | Precision | 81.68% | **84.50%** |
 | Recall | **77.13%** | 76.47% |
 | mAP@50 | **85.48%** | 85.14% |
 | mAP@50-95 | 48.54% | **49.07%** |
 
-### Observations
+---
 
-- YOLO26n achieved the highest overall detection accuracy.
-- YOLO26n produced higher precision, reducing false detections.
-- YOLOv8n achieved a slightly higher recall, detecting more true objects.
-- Both models achieved comparable mAP@50 values above 85%.
-- YOLO26n achieved the best mAP@50-95, indicating stronger localization performance across different IoU thresholds.
+# 📊 Training Summary
+
+## YOLOv8n
+
+| Training Detail | Value |
+|-----------------|------|
+| Model | YOLOv8n |
+| Epochs | 60 |
+| Dataset | DIRS21 |
+| Batch Size | 8 |
+| Optimizer | AdamW |
+| Image Size | 640 × 640 |
+| Early Stopping | Enabled (Patience = 10) |
+
+### Final Results
+
+- Detection Accuracy : **79.40%**
+- Precision : **81.68%**
+- Recall : **77.13%**
+- mAP@50 : **85.48%**
+- mAP@50-95 : **48.54%**
+
+---
+
+## YOLO26n
+
+| Training Detail | Value |
+|-----------------|------|
+| Model | YOLO26n |
+| Epochs | 60 |
+| Dataset | DIRS21 |
+| Batch Size | 8 |
+| Optimizer | AdamW |
+| Image Size | 640 × 640 |
+| Early Stopping | Enabled (Patience = 10) |
+
+### Final Results
+
+- Detection Accuracy : **80.48%**
+- Precision : **84.50%**
+- Recall : **76.47%**
+- mAP@50 : **85.14%**
+- mAP@50-95 : **49.07%**
+
+---
+
+# 📉 Training Graphs
+
+The repository contains complete training visualizations generated by the Ultralytics framework.
+
+These include:
+
+- 📈 Loss Curves
+- 📈 Precision Curve
+- 📈 Recall Curve
+- 📈 mAP Curve
+- 📈 Precision-Recall Curve
+- 📈 F1 Score Curve
+
+Files available inside each training run:
+
+```
+results.png
+BoxF1_curve.png
+BoxPR_curve.png
+BoxP_curve.png
+BoxR_curve.png
+```
+
+---
+
+# 📋 Confusion Matrix
+
+The trained models were evaluated using confusion matrices to analyze class-wise prediction performance.
+
+Included in this repository:
+
+```
+confusion_matrix.png
+
+confusion_matrix_normalized.png
+```
+
+These matrices provide insights into:
+
+- Correct classifications
+- False Positives
+- False Negatives
+- Class confusion
+
+---
+
+# 🖼 Sample Training Outputs
+
+Each successful training run contains:
+
+- Training batches
+- Validation batches
+- Prediction visualizations
+- Label distributions
+- Class frequency plots
+
+These outputs are preserved for reproducibility and model analysis.
+
+---
+
+# 🧪 Experimental Runs
+
+Multiple experiments were conducted during model development.
+
+### YOLO26 Experiments
+
+- 20 Epochs
+- 40 Epochs
+- 60 Epochs
+- 80 Epochs
+
+These experiments helped analyze convergence behaviour and compare the effect of longer training durations.
+
+---
+
+# 🔬 Key Observations
+
+### YOLO26n
+
+✅ Highest Detection Accuracy
+
+✅ Highest Precision
+
+✅ Highest mAP@50-95
+
+### YOLOv8n
+
+✅ Highest Recall
+
+✅ Slightly higher mAP@50
+
+---
+
+# 📚 Comparison with Research Paper
+
+The performance achieved in this project is compared with the reference research paper that utilized the DIRS21 dataset.
+
+| Metric | Research Paper | This Project (YOLO26n) |
+|---------|---------------:|-----------------------:|
+| Detection Accuracy | Comparable | **80.48%** |
+| Precision | Comparable | **84.50%** |
+| Recall | Comparable | **76.47%** |
+| mAP@50 | Comparable | **85.14%** |
+| mAP@50-95 | Comparable | **49.07%** |
+
+The obtained results demonstrate that the implemented pipeline successfully reproduces competitive performance on the DIRS21 dataset while validating the effectiveness of YOLO-based object detection for Indian road environments.
+
+
+---
+
+# 🚀 Future Improvements
+
+The current implementation demonstrates strong real-time object detection performance; however, several enhancements can further improve the system.
+
+### Planned Improvements
+
+- 🚦 Traffic Sign Detection
+- 🚥 Traffic Light Recognition
+- 🚗 Lane Detection
+- 📏 Distance Estimation using LiDAR
+- 🌡️ Thermal Camera Integration
+- ⚠️ Collision Warning System
+- 🚶 Pedestrian Intention Prediction
+- 🚘 Vehicle Speed Estimation
+- 📍 GPS-based Navigation Assistance
+- 🎥 Real-time Video Stream Detection
+- 🤖 Deployment on NVIDIA Jetson Nano
+- ☁️ Edge AI Optimization using TensorRT
+
+---
+
+# 🏆 Project Highlights
+
+✔ Successfully trained and evaluated **YOLOv8n** and **YOLO26n** on the DIRS21 dataset.
+
+✔ Achieved over **80% Detection Accuracy** on Indian road scenarios.
+
+✔ Compared two state-of-the-art object detection architectures.
+
+✔ Evaluated performance using:
+
+- Detection Accuracy
+- Precision
+- Recall
+- mAP@50
+- mAP@50-95
+- Confusion Matrix
+- Precision-Recall Curves
+- F1 Score Curves
+
+✔ Conducted multiple experimental training runs to analyze convergence across different epoch counts.
+
+---
+
+# 🌍 Applications
+
+This project can be integrated into:
+
+- Advanced Driver Assistance Systems (ADAS)
+- Autonomous Vehicles
+- Smart Transportation Systems
+- Intelligent Traffic Monitoring
+- Road Safety Analytics
+- Fleet Management
+- Driver Assistance Solutions
+- Edge AI Systems
+
+---
+
+# 📖 References
+
+### Dataset
+
+DIRS21 – Dataset for Indian Road Scenarios
+
+IEEE Dataport
+
+---
+
+### Framework
+
+Ultralytics YOLO
+
+https://github.com/ultralytics/ultralytics
+
+---
+
+### Deep Learning Framework
+
+PyTorch
+
+https://pytorch.org/
+
+---
+
+### Computer Vision Library
+
+OpenCV
+
+https://opencv.org/
+
+---
+
+# 🤝 Acknowledgements
+
+Special thanks to:
+
+- Ultralytics
+- PyTorch
+- OpenCV
+- IEEE Dataport
+- DIRS21 Dataset Authors
+
+for providing the resources and tools that made this project possible.
+
+---
+
+# 📊 Repository Contents
+
+This repository includes:
+
+- Complete source code
+- Dataset preprocessing script
+- Training configuration
+- Model evaluation scripts
+- Training statistics
+- Performance comparison
+- Training graphs
+- Confusion matrices
+- Precision-Recall curves
+- F1 curves
+- CSV training logs
+- Experimental results
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+See the **LICENSE** file for more information.
+
+---
+
+# 👨‍💻 Author
+
+## Armaan Bhide
+
+Computer Science Engineering (Artificial Intelligence & Machine Learning)
+
+Interested in:
+
+- Artificial Intelligence
+- Computer Vision
+- Machine Learning
+- Deep Learning
+- Edge AI
+- Autonomous Driving
+- Intelligent Transportation Systems
+
+GitHub:
+
+https://github.com/ArmaanBhide
+
+---
+
+# ⭐ If you found this project useful
+
+Please consider giving this repository a ⭐ on GitHub.
+
+It helps support the project and motivates future improvements.
+
+---
+
+<p align="center">
+
+### 🚗 Making Indian Roads Smarter with AI 🚗
+
+</p>
 
 
