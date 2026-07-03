@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# VS Code settings
+.vscode/
+
+# Dataset
+dataset/
+DIRS21/
+
+# Training outputs
+runs/
+
+# Model weights
+*.pt
+
+# Cache files
+*.cache
+
+# System files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,14 @@
+path: C:/Users/pqin/OneDrive/Documents/DIRS21_yolov8/dataset
+
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: Auto_Rickshaw
+  1: Bicycle
+  2: Bus
+  3: Car
+  4: Motorcycle
+  5: Person
+  6: Truck
