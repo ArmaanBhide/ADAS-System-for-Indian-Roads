@@ -289,6 +289,43 @@ These outputs are preserved for reproducibility and model analysis.
 
 ---
 
+### YOLO26n Training Results
+
+#### Training Metrics
+<p align="center">
+  <img src="runs/detect/yolo26n_60epochs/results.png" width="900"/>
+</p>
+
+#### Precision-Recall Curves
+<p align="center">
+  <img src="runs/detect/yolo26n_60epochs/BoxPR_curve.png" width="700"/>
+</p>
+
+#### Precision Curve
+<p align="center">
+  <img src="runs/detect/yolo26n_60epochs/BoxP_curve.png" width="700"/>
+</p>
+
+#### Recall Curve
+<p align="center">
+  <img src="runs/detect/yolo26n_60epochs/BoxR_curve.png" width="700"/>
+</p>
+
+#### F1 Score Curve
+<p align="center">
+  <img src="runs/detect/yolo26n_60epochs/BoxF1_curve.png" width="700"/>
+</p>
+
+#### Confusion Matrix
+<p align="center">
+  <img src="runs/detect/yolo26n_60epochs/confusion_matrix.png" width="700"/>
+</p>
+
+#### Normalized Confusion Matrix
+<p align="center">
+  <img src="runs/detect/yolo26n_60epochs/confusion_matrix_normalized.png" width="700"/>
+</p>
+
 # 🧪 Experimental Runs
 
 Multiple experiments were conducted during model development.
