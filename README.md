@@ -74,6 +74,19 @@ Dataset Split:
 | Validation | 10% |
 
 ---
+### Sample Images from DIRS21 Dataset
+
+<p align="center">
+  <img src="runs/detect/yolo26n_60epochs/train_batch0.jpg" width="800"/>
+</p>
+
+<p align="center">
+  <img src="runs/detect/yolo26n_60epochs/train_batch1.jpg" width="800"/>
+</p>
+
+<p align="center">
+  <img src="runs/detect/yolo26n_60epochs/train_batch2.jpg" width="800"/>
+</p>
 
 # 📂 Project Structure
 
