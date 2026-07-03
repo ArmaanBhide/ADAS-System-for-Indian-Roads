@@ -6,22 +6,39 @@ __pycache__/
 .venv/
 venv/
 
-# VS Code settings
+# VS Code
 .vscode/
 
 # Dataset
 dataset/
 DIRS21/
 
-# Training outputs
-runs/
+# Ignore all training outputs
+runs/*
 
-# Model weights
+!runs/detect/
+
+!runs/detect/train-8/
+!runs/detect/train-8/**
+
+!runs/detect/yolo26n_20epochs/
+!runs/detect/yolo26n_20epochs/**
+
+!runs/detect/yolo26n_40epochs/
+!runs/detect/yolo26n_40epochs/**
+
+!runs/detect/yolo26n_60epochs/
+!runs/detect/yolo26n_60epochs/**
+
+!runs/detect/yolo26n_80epochs/
+!runs/detect/yolo26n_80epochs/**
+
+# Ignore model weights
 *.pt
 
-# Cache files
+# Cache
 *.cache
 
-# System files
+# System
 .DS_Store
 Thumbs.db
